@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 class Page extends Component {
-
   render() {
     return (
       <Container className="spinner-page">
@@ -14,17 +13,15 @@ class Page extends Component {
           <Panel>
             <Panel.Header title="基本" />
             <Panel.Body>
-              <Cell description={
-                <Spinner />
-              }>普通</Cell>
+              <Cell description={<Spinner />}>
+                普通
+              </Cell>
 
-              <Cell description={
-                <Spinner className="rotate360" />
-              }>旋转动画</Cell>
+              <Cell description={<Spinner className="rotate360" />}>
+                旋转动画
+              </Cell>
 
-              <Cell description={
-                <Spinner size="lg" />
-              }>大号</Cell>
+              <Cell description={<Spinner size="lg" />}>大号</Cell>
 
             </Panel.Body>
           </Panel>

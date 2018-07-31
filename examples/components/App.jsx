@@ -8,7 +8,6 @@ import '../styles/index';
 import '../styles/components/App';
 
 class App extends Component {
-
   componentDidMount() {
     // Events.on(window, 'resize', window.__setFontSize__);
     // FastClick.attach(document.body);
@@ -20,10 +19,11 @@ class App extends Component {
     return (
       <TransitionGroup>
         <CSSTransition
+          appear
           key={currentKey}
           timeout={300}
           classNames={(history.action === 'PUSH' || (history.action === 'POP' && !match.isExact)) ? 'out' : 'in'}
-          appear>
+        >
           <section>
             <Switch key={location.pathname} location={location}>
               <Route exact path="/" component={AsyncComponent(() => import('../pages/Index'))} />
@@ -38,6 +38,7 @@ class App extends Component {
               <Route path="/stepper" component={AsyncComponent(() => import('../pages/StepperPage'))} />
               <Route path="/switch" component={AsyncComponent(() => import('../pages/SwitchPage'))} />
               <Route path="/file-picker" component={AsyncComponent(() => import('../pages/FilePickerPage'))} />
+              <Route path="/searchbar" component={AsyncComponent(() => import('../pages/SearchbarPage'))} />
 
               {/* 操作反馈 */}
               <Route path="/action-sheet" component={AsyncComponent(() => import('../pages/ActionSheetPage'))} />
@@ -49,6 +50,7 @@ class App extends Component {
               <Route path="/toast" component={AsyncComponent(() => import('../pages/ToastPage'))} />
 
               {/* 数据展示 */}
+              <Route path="/accordion" component={AsyncComponent(() => import('../pages/AccordionPage'))} />
               <Route path="/badge" component={AsyncComponent(() => import('../pages/BadgePage'))} />
               <Route path="/cell" component={AsyncComponent(() => import('../pages/CellPage'))} />
               <Route path="/icon" component={AsyncComponent(() => import('../pages/IconPage'))} />

@@ -62,6 +62,7 @@ $opacity-toast: .7;
 $opacity-tooltip: .7;
 
 /* 组件前缀 */
+$prefixCls-accordion: za-accordion;
 $prefixCls-actionsheet: za-actionsheet;
 $prefixCls-alert: za-alert;
 $prefixCls-badge: za-badge;
@@ -84,6 +85,7 @@ $prefixCls-popup: za-popup;
 $prefixCls-progress: za-progress;
 $prefixCls-pull: za-pull;
 $prefixCls-radio: za-radio;
+$prefixCls-searchbar: za-searchbar;
 $prefixCls-select: za-select;
 $prefixCls-slider: za-slider;
 $prefixCls-spinner: za-spinner;
@@ -95,6 +97,11 @@ $prefixCls-tab: za-tab;
 $prefixCls-toast: za-toast;
 $prefixCls-tooltip: za-tooltip;
 $prefixCls-filepicker: za-filepicker;
+
+// Accordion
+$accordion-height: r(45);
+$accordion-padding: r(15);
+$accordion-arrow-color: #c7c7cc;
 
 // ActionSheet
 $actionsheet-margin: 0;
@@ -144,7 +151,7 @@ $confirm-button-height: r(50);
 $confirm-button-font-size: r(18);
 
 // Icon
-$icon-url: '//at.alicdn.com/t/font_126288_uipjvv8ogdivbo6r';
+$icon-url: '//at.alicdn.com/t/font_126288_147h8m0m5se5ewmi';
 
 // Keyboard
 $keyboard-item-height: r(50);

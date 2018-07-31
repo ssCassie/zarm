@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, FilePicker, Icon, Toast, Badge, Cell, Button } from 'zarm';
+import { Panel, FilePicker, Icon, Toast, Badge, Cell } from 'zarm';
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,7 +12,6 @@ function onBeforeSelect() {
 }
 
 class FilePickerPage extends Component {
-
   constructor(props) {
     super(props);
 
@@ -24,7 +23,7 @@ class FilePickerPage extends Component {
       toast: {
         visible: false,
         onMaskClick: () => {
-          const toast = this.state.toast;
+          const { toast } = this.state;
           toast.visible = false;
           this.setState({ toast });
         },
@@ -85,7 +84,7 @@ class FilePickerPage extends Component {
     return this.state[files].map((item, index) => {
       return (
         <Badge sup className="filepicker-item" shape="circle" text={<Icon type="wrong" />} key={+index} onClick={() => this.remove(files, +index)}>
-          <div className="filepicker-item-img"><a href={item.thumbnail} target="_blank"><img src={item.thumbnail} alt="" /></a></div>
+          <div className="filepicker-item-img"><a href={item.thumbnail} target="_blank" rel="noopener noreferrer"><img src={item.thumbnail} alt="" /></a></div>
         </Badge>
       );
     });
@@ -117,7 +116,8 @@ class FilePickerPage extends Component {
               <div className="filepicker-wrapper">
                 <FilePicker
                   className="filepicker-btn"
-                  onChange={this.onSelect}>
+                  onChange={this.onSelect}
+                >
                   <Icon type="add" />
                 </FilePicker>
               </div>
@@ -136,7 +136,8 @@ class FilePickerPage extends Component {
                       className="filepicker-btn"
                       accept="image/*"
                       onBeforeSelect={onBeforeSelect}
-                      onChange={this.onSelectMulti}>
+                      onChange={this.onSelectMulti}
+                    >
                       <Icon type="add" />
                     </FilePicker>
                   )

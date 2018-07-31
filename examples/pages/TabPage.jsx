@@ -6,14 +6,6 @@ import Footer from '../components/Footer';
 import '../styles/pages/TabPage';
 
 class TabPage extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: 0,
-    };
-  }
-
   render() {
     return (
       <Container className="tab-page">

@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 class Page extends Component {
-
   render() {
     return (
       <Container className="swipeAction-page">
@@ -18,7 +17,8 @@ class Page extends Component {
                 right={[
                   <Button theme="primary" onClick={() => console.log('右按钮1')}>右按钮1</Button>,
                   <Button theme="error" onClick={() => console.log('右按钮2')}>右按钮2</Button>,
-                ]}>
+                ]}
+              >
                 <Cell>左滑看看</Cell>
               </SwipeAction>
 
@@ -26,7 +26,8 @@ class Page extends Component {
                 left={[
                   <Button theme="primary" onClick={() => console.log('左按钮1')}>左按钮1</Button>,
                   <Button theme="error" onClick={() => console.log('左按钮2')}>左按钮2</Button>,
-                ]}>
+                ]}
+              >
                 <Cell>右滑看看</Cell>
               </SwipeAction>
 
@@ -40,7 +41,8 @@ class Page extends Component {
                   <Button theme="error" onClick={() => console.log('右按钮1')}>右按钮2</Button>,
                 ]}
                 onOpen={() => console.log('open')}
-                onClose={() => console.log('close')}>
+                onClose={() => console.log('close')}
+              >
                 <Cell>左右都能滑动（自动关闭）</Cell>
               </SwipeAction>
             </Panel.Body>

@@ -6,14 +6,13 @@ import Footer from '../components/Footer';
 import '../styles/pages/PanelPage';
 
 class Page extends Component {
-
   render() {
     return (
       <Container className="panel-page">
         <Header title="面板 Panel" />
         <main>
           <Panel>
-            <Panel.Header title="标题" more={<a onClick={() => alert('click more')}>更多</a>} />
+            <Panel.Header title="标题" more={<a href="/#" onClick={() => alert('click more')}>更多</a>} />
             <Panel.Body>
               <div className="box">内容</div>
             </Panel.Body>

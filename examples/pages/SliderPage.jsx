@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 class Page extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +26,7 @@ class Page extends Component {
                   onChange={(value) => {
                     console.log(value);
                   }}
-                  />
+                />
               </Cell>
 
               <Cell title="设置默认值">

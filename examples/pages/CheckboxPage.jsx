@@ -6,14 +6,6 @@ import Footer from '../components/Footer';
 import '../styles/pages/CheckboxPage';
 
 class Page extends PureComponent {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      checkbox: [],
-    };
-  }
-
   render() {
     return (
       <Container className="checkbox-page">
@@ -28,7 +20,7 @@ class Page extends PureComponent {
               <Cell><Checkbox defaultChecked disabled>选中且禁用</Checkbox></Cell>
               <Cell className="agreement-box">
                 <Checkbox id="agreement" />
-                <label htmlFor="agreement">阅读并同意<a onClick={(e) => { e.preventDefault(); alert('agree it'); }}>《XXX条款》</a>中的相关规定</label>
+                <label htmlFor="agreement">阅读并同意<a href="/#" onClick={(e) => { e.preventDefault(); alert('agree it'); }}>《XXX条款》</a>中的相关规定</label>
               </Cell>
             </Panel.Body>
           </Panel>
@@ -43,7 +35,10 @@ class Page extends PureComponent {
                     <Checkbox value="1">选项二</Checkbox>
                     <Checkbox value="2">选项三</Checkbox>
                   </Checkbox.Group>
-                }>普通</Cell>
+                }
+              >
+                普通
+              </Cell>
 
               <Cell
                 description={
@@ -52,7 +47,10 @@ class Page extends PureComponent {
                     <Checkbox value="1">选项二</Checkbox>
                     <Checkbox value="2">选项三</Checkbox>
                   </Checkbox.Group>
-                }>指定默认值</Cell>
+                }
+              >
+                指定默认值
+              </Cell>
 
               <Cell
                 description={
@@ -61,7 +59,10 @@ class Page extends PureComponent {
                     <Checkbox value="1">选项二</Checkbox>
                     <Checkbox value="2" disabled>选项三</Checkbox>
                   </Checkbox.Group>
-                }>禁用指定项</Cell>
+                }
+              >
+                禁用指定项
+              </Cell>
 
               <Cell
                 description={
@@ -70,7 +71,10 @@ class Page extends PureComponent {
                     <Checkbox value="1">选项二</Checkbox>
                     <Checkbox value="2">选项三</Checkbox>
                   </Checkbox.Group>
-                }>圆角</Cell>
+                }
+              >
+                圆角
+              </Cell>
 
               <Cell
                 description={
@@ -79,7 +83,10 @@ class Page extends PureComponent {
                     <Checkbox value="1">选项二</Checkbox>
                     <Checkbox value="2">选项三</Checkbox>
                   </Checkbox.Group>
-                }>椭圆角</Cell>
+                }
+              >
+                椭圆角
+              </Cell>
 
             </Panel.Body>
           </Panel>

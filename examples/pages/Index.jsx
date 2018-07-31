@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { Panel, Cell } from 'zarm';
 import Container from '../components/Container';
 import Footer from '../components/Footer';
-import '../styles/pages/IndexPage';
+import '../styles/components/Header.scss';
+import '../styles/pages/IndexPage.scss';
 
 class Page extends PureComponent {
-
   render() {
     const { history } = this.props;
 
@@ -30,6 +30,7 @@ class Page extends PureComponent {
               <Cell hasArrow title="滑动输入条 Slider" onClick={() => history.push('/slider')} />
               <Cell hasArrow title="步进器 Stepper" onClick={() => history.push('/stepper')} />
               <Cell hasArrow title="开关 Switch" onClick={() => history.push('/switch')} />
+              <Cell hasArrow title="搜索栏 SearchBar" onClick={() => history.push('/searchbar')} />
             </Panel.Body>
           </Panel>
           <Panel>
@@ -47,6 +48,7 @@ class Page extends PureComponent {
           <Panel>
             <Panel.Header title="数据展示" />
             <Panel.Body>
+              <Cell hasArrow title="手风琴 Accordion" onClick={() => history.push('/accordion')} />
               <Cell hasArrow title="徽标 Badge" onClick={() => history.push('/badge')} />
               <Cell hasArrow title="列表项 Cell" onClick={() => history.push('/cell')} />
               <Cell hasArrow title="图标 Icon" onClick={() => history.push('/icon')} />

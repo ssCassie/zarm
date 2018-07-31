@@ -8,7 +8,6 @@ import '../styles/pages/CellPage';
 const img = require('../images/icons/state.png');
 
 class Page extends Component {
-
   render() {
     return (
       <Container className="cell-page">
@@ -69,7 +68,7 @@ class Page extends Component {
                 description="附加提示"
                 icon={<img alt="" src={img} />}
                 onClick={() => {}}
-                />
+              />
             </Panel.Body>
           </Panel>
 
@@ -78,8 +77,10 @@ class Page extends Component {
             <Panel.Body>
               <Cell
                 title="标题"
-                help={<Message theme="error" icon={<Icon type="info-round" />}>标题不能为空</Message>}>
-                <Input type="text" placeholder="请输入标题" /></Cell>
+                help={<Message theme="error" icon={<Icon type="info-round" />}>标题不能为空</Message>}
+              >
+                <Input type="text" placeholder="请输入标题" />
+              </Cell>
             </Panel.Body>
           </Panel>
         </main>

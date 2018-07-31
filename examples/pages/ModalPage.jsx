@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 class Page extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -41,42 +40,43 @@ class Page extends Component {
             <Panel.Body>
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    onClick={() => this.open('modal1')}>开启</Button>
-                }>普通</Cell>
+                  <Button size="sm" onClick={() => this.open('modal1')}>开启</Button>
+                }
+              >
+                普通
+              </Cell>
 
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    onClick={() => this.open('modal3')}>开启</Button>
-                }>
+                  <Button size="sm" onClick={() => this.open('modal3')}>开启</Button>
+                }
+              >
                 圆角
               </Cell>
 
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    onClick={() => this.open('modal2')}>开启</Button>
-                }>
+                  <Button size="sm" onClick={() => this.open('modal2')}>开启</Button>
+                }
+              >
                 遮罩层可关闭
               </Cell>
 
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    onClick={() => this.open('modal4')}>开启</Button>
-                }>无头部</Cell>
+                  <Button size="sm" onClick={() => this.open('modal4')}>开启</Button>
+                }
+              >
+                无头部
+              </Cell>
 
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    onClick={() => this.open('modal5')}>开启</Button>
-                }>动画效果</Cell>
+                  <Button size="sm" onClick={() => this.open('modal5')}>开启</Button>
+                }
+              >
+                动画效果
+              </Cell>
             </Panel.Body>
           </Panel>
 
@@ -85,21 +85,17 @@ class Page extends Component {
             <Panel.Body>
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    theme="warning"
-                    onClick={() => this.open('alert')}>开启</Button>
-                }>
+                  <Button size="sm" theme="warning" onClick={() => this.open('alert')}>开启</Button>
+                }
+              >
                 警告框 Alert
               </Cell>
 
               <Cell
                 description={
-                  <Button
-                    size="sm"
-                    theme="warning"
-                    onClick={() => this.open('confirm')}>开启</Button>
-                }>
+                  <Button size="sm" theme="warning" onClick={() => this.open('confirm')}>开启</Button>
+                }
+              >
                 确认框 Confirm
               </Cell>
             </Panel.Body>
@@ -107,29 +103,21 @@ class Page extends Component {
 
           <Modal visible={this.state.modal1}>
             <Modal.Header title="标题" onClose={() => this.close('modal1')} />
-            <Modal.Body>
-              模态框内容
-            </Modal.Body>
+            <Modal.Body>模态框内容</Modal.Body>
           </Modal>
 
           <Modal visible={this.state.modal2} onMaskClick={() => this.close('modal2')}>
             <Modal.Header title="标题" />
-            <Modal.Body>
-              点击遮罩层关闭
-            </Modal.Body>
+            <Modal.Body>点击遮罩层关闭</Modal.Body>
           </Modal>
 
           <Modal shape="radius" visible={this.state.modal3}>
             <Modal.Header title="标题" onClose={() => this.close('modal3')} />
-            <Modal.Body>
-              模态框内容
-            </Modal.Body>
+            <Modal.Body>模态框内容</Modal.Body>
           </Modal>
 
           <Modal visible={this.state.modal4} onMaskClick={() => this.close('modal4')}>
-            <Modal.Body>
-              无头部
-            </Modal.Body>
+            <Modal.Body>无头部</Modal.Body>
           </Modal>
 
           <Modal visible={this.state.modal5} animationType="rotate" onMaskClick={() => this.close('modal5')}>
@@ -152,7 +140,7 @@ class Page extends Component {
             title="警告"
             message="这里是警告信息"
             onCancel={() => this.close('alert')}
-            />
+          />
 
           <Confirm
             shape="radius"
@@ -161,7 +149,7 @@ class Page extends Component {
             message="你确定要这样做吗？"
             onOk={() => alert('click ok')}
             onCancel={() => this.close('confirm')}
-            />
+          />
 
         </main>
         <Footer />

@@ -33,6 +33,7 @@ export default class Select extends PureComponent<SelectProps, any> {
 
   private tempValue;
   private tempObjValue;
+  private isScrolling;
 
   constructor(props) {
     super(props);
@@ -46,7 +47,6 @@ export default class Select extends PureComponent<SelectProps, any> {
     this.setState({
       value: getValue(nextProps, []),
     });
-
     if ('visible' in nextProps && nextProps.visible !== this.state.visible) {
       this.setState({
         visible: nextProps.visible,
@@ -56,18 +56,21 @@ export default class Select extends PureComponent<SelectProps, any> {
 
   onInit = (selected) => {
     const { valueMember } = this.props;
+    const { value } = this.state;
     const firstValue = selected.map(item => item[valueMember!]);
 
-    this.tempValue = this.state.value.length ? firstValue : [] ;
-    this.tempObjValue = this.state.value.length ? selected : [];
+    this.tempValue = this.isValueValid(value) ? firstValue : [] ;
+    this.tempObjValue = this.isValueValid(value) ? selected : [];
 
     this.setState({
-      firstValue,
       firstObjValue: selected,
     });
   }
 
   handleClick = () => {
+    if (this.isScrolling) {
+      return false;
+    }
     this.toggle();
   }
 
@@ -81,6 +84,10 @@ export default class Select extends PureComponent<SelectProps, any> {
     });
   }
 
+  onTransition(isScrolling) {
+    this.isScrolling = isScrolling;
+  }
+
   onChange = (selected) => {
     const { onChange } = this.props;
     if (typeof onChange === 'function') {
@@ -88,7 +95,23 @@ export default class Select extends PureComponent<SelectProps, any> {
     }
   }
 
+  // onChange = (selected) => {
+  //   const { valueMember, onChange } = this.props;
+  //   const value = selected.map(item => item[valueMember!]);
+  //   this.setState({
+  //     value,
+  //     objValue: selected,
+  //   });
+
+  //   if (typeof onChange === 'function') {
+  //     onChange(selected);
+  //   }
+  // }
+
   onOk = (selected) => {
+    if (this.isScrolling) {
+      return false;
+    }
     this.toggle();
     const { onOk, valueMember } = this.props;
     this.setState({
@@ -115,20 +138,24 @@ export default class Select extends PureComponent<SelectProps, any> {
     }
   }
 
+  isValueValid(value) {
+    return value.length > 0 && value.some(item => !!item);
+  }
+
   render() {
     const { prefixCls, placeholder, className, disabled, displayRender, ...others } = this.props;
     const { visible, value, objValue, firstObjValue } = this.state;
     const cls = classnames(`${prefixCls}`, className);
 
     const inputCls = classnames(`${prefixCls}-input`, {
-      [`${prefixCls}-placeholder`]: value.length === 0,
+      [`${prefixCls}-placeholder`]: !this.isValueValid(value),
       [`${prefixCls}-disabled`]: !!disabled,
     });
 
     return (
       <div className={cls} onClick={this.handleClick}>
         <div className={inputCls}>
-          {value.length > 0 && displayRender!(objValue || firstObjValue || []) || placeholder}
+          {this.isValueValid(value) && displayRender!(objValue || firstObjValue || []) || placeholder}
         </div>
         <Picker
           {...others}
@@ -139,8 +166,10 @@ export default class Select extends PureComponent<SelectProps, any> {
           onOk={this.onOk}
           onChange={this.onChange}
           onCancel={this.onCancel}
+          onTransition={(isScrolling) => { this.onTransition(isScrolling); }}
         />
       </div>
     );
   }
+
 }

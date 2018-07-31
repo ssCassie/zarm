@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 import '../styles/pages/MessagePage';
 
 class Page extends Component {
-
   render() {
     return (
       <Container className="message-page">
